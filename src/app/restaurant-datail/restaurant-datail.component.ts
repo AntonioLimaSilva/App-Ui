@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { RestaurantService } from '../restaurants/restaurant.service';
+import { RestaurantsService } from '../restaurants/restaurants.service';
 import { Restaurant } from '../restaurants/restaurant/restaurant.model';
+import { MenuItem } from './menu-item.model';
 
 @Component({
   selector: 'mt-restaurant-datail',
@@ -13,7 +14,7 @@ export class RestaurantDatailComponent implements OnInit {
   restaurant: Restaurant;
 
   constructor(
-    private restaurantService: RestaurantService,
+    private restaurantService: RestaurantsService,
     private activatedRoute: ActivatedRoute
   ) { }
 
