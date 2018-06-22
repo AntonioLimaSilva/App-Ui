@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { CartItem } from './cart-item.model';
+
 import { MenuItem } from '../menu-item/menu-item.model';
+import { CartItem } from './cart-item.model';
 
 @Injectable()
 export class ShoppingCartService {
 
   itens: CartItem[] = [];
-
-  constructor() { }
 
   clear(): void {
     this.itens = [];
@@ -18,12 +17,12 @@ export class ShoppingCartService {
 
     if(itemExistente) {
       itemExistente.quantity = itemExistente.quantity + 1;
-    }else{
+    } else {
       this.itens.push(new CartItem(item));
     }
   }
 
-  removeItem(item: CartItem): void {
+  removeItem(item: any): void {
     this.itens.splice(this.itens.indexOf(item), 1);
   }
 

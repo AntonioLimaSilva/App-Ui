@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Restaurant } from './restaurant/restaurant.model';
 import { RestaurantsService } from './restaurants.service';
 
@@ -13,7 +14,7 @@ export class RestaurantsComponent implements OnInit {
   constructor(private restaurantsService: RestaurantsService) { }
 
   ngOnInit() {
-    this.restaurantsService.listarTodos().subscribe(restaurants => this.restaurants = restaurants);
+    this.restaurantsService.buscarTodos().subscribe(restaurants => this.restaurants = restaurants);
   }
 
 }
