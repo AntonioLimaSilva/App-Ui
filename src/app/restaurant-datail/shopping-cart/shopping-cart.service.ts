@@ -16,9 +16,20 @@ export class ShoppingCartService {
     let itemExistente = this.itens.find((mItem) => mItem.menuItem.id === item.id);
 
     if(itemExistente) {
-      itemExistente.quantity = itemExistente.quantity + 1;
+      this.increaseQty(itemExistente);
     } else {
       this.itens.push(new CartItem(item));
+    }
+  }
+
+  increaseQty(item): void {
+    item.quantity = item.quantity + 1;
+  }
+
+  decreaseQty(item): void {
+    item.quantity = item.quantity - 1;
+    if(item.quantity === 0) {
+      this.removeItem(item);
     }
   }
 
